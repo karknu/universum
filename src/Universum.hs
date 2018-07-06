@@ -82,6 +82,11 @@ module Universum
          -- * Lenses
        , module Lens.Micro
        , module Lens.Micro.Mtl
+
+         -- * String logic
+       , module Formatting.Buildable
+       , pretty
+       
        ) where
 
 import Universum.Applicative
@@ -107,3 +112,12 @@ import Universum.VarArg
 import Lens.Micro (Lens, Lens', Traversal, Traversal', over, set, (%~), (&), (.~), (<&>), (^.),
                    (^..), (^?), _1, _2, _3, _4, _5)
 import Lens.Micro.Mtl (preuse, preview, use, view)
+
+-- Strings
+import           Fmt (fmt)
+import           Formatting.Buildable (Buildable)
+
+import qualified Formatting.Buildable as B (build)
+
+pretty :: Buildable a => a -> Text
+pretty = fmt . B.build

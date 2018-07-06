@@ -88,6 +88,8 @@ library
                      , unordered-containers
                      , utf8-string
                      , vector
+                     , formatting
+                     , fmt
 
   default-language:    Haskell2010
   default-extensions:  NoImplicitPrelude
